@@ -1,0 +1,6 @@
+/* Estilos globales: se definirán en la fase de maquetación */
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: system-ui, sans-serif;
+}
