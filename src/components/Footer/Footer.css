@@ -1,1 +1,27 @@
-/* Estilos de Footer — se definirán en la maquetación */
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.footer__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.footer__brand {
+  margin: 0 0 var(--space-xs);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.footer__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.footer__link {
+  color: var(--color-accent);
+}

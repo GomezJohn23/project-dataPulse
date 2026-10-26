@@ -1,6 +1,62 @@
-/* Estilos globales: se definirán en la fase de maquetación */
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --color-bg: #eef3f1;
+  --color-bg-accent: #d7ebe4;
+  --color-surface: #f7faf8;
+  --color-text: #15202b;
+  --color-text-muted: #5c6b76;
+  --color-accent: #0f766e;
+  --color-accent-soft: #ccfbf1;
+  --color-border: #c5d4ce;
+  --color-danger: #b00020;
+
+  --font-sans: 'Figtree', sans-serif;
+  --font-display: 'Syne', sans-serif;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --content-width: 44rem;
+  --header-height: 3.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-width: 320px;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, var(--color-bg-accent), transparent 55%),
+    radial-gradient(900px 400px at 100% 0%, #dbe7f0, transparent 50%),
+    var(--color-bg);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
 }

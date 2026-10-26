@@ -1,1 +1,32 @@
-/* Estilos de Header — se definirán en la maquetación */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--color-border);
+  background-color: rgb(247 250 248 / 92%);
+  backdrop-filter: blur(8px);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  max-width: var(--content-width);
+  min-height: var(--header-height);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.header__logo {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.header__logo:hover {
+  color: var(--color-accent);
+}

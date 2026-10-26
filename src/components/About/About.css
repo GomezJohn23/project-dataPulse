@@ -1,1 +1,39 @@
-/* Estilos de About — se definirán en la maquetación */
+.about {
+  padding: 1.5rem;
+  max-width: 40rem;
+}
+
+.about__title {
+  margin: 0 0 1.25rem;
+}
+
+.about__subtitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.about__author,
+.about__project {
+  margin-bottom: 1.75rem;
+}
+
+.about__text {
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.about__links {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about__link {
+  color: inherit;
+}
+
+.about__link:hover {
+  text-decoration: none;
+}

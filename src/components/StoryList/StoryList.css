@@ -1,1 +1,8 @@
-/* Estilos de StoryList — se definirán en la maquetación */
+.story-list {
+  margin-top: 1.5rem;
+}
+
+.story-list__empty {
+  margin: 0;
+  opacity: 0.75;
+}

@@ -1,1 +1,31 @@
-/* Estilos de Navigation — se definirán en la maquetación */
+.navigation__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation__link {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.navigation__link:hover {
+  color: var(--color-text);
+  background-color: var(--color-accent-soft);
+  text-decoration: none;
+}
+
+.navigation__link_active {
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+  font-weight: 700;
+  text-decoration: none;
+}

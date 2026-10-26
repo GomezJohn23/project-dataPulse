@@ -1,1 +1,21 @@
-/* Estilos de SearchForm — se definirán en la maquetación */
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.search-form__label {
+  font-weight: 600;
+}
+
+.search-form__input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 0.4rem 0.6rem;
+}
+
+.search-form__button {
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
