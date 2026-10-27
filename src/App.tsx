@@ -3,6 +3,7 @@ import About from './components/About/About'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
+import StoryDetail from './components/StoryDetail/StoryDetail'
 
 /**
  * App = layout + mapa de rutas.
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
+        <Route path="/story/:id" element={<StoryDetail />} />
       </Routes>
       <Footer />
     </>

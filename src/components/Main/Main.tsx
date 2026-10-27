@@ -6,7 +6,7 @@ import StoryList from '../StoryList/StoryList'
 import './Main.css'
 
 /**
- * Home (/): carga historias top de Hacker News y las muestra.
+ * Home (/): carga historias top y permite filtrarlas por título o autor.
  */
 function Main() {
   const [stories, setStories] = useState<Story[]>([])
@@ -28,7 +28,9 @@ function Main() {
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : 'No se pudieron cargar las historias')
+          setError(
+            err instanceof Error ? err.message : 'No se pudieron cargar las historias',
+          )
         }
       } finally {
         if (!cancelled) {
@@ -39,12 +41,11 @@ function Main() {
 
     loadStories()
 
-    // Si el usuario se va de la página antes de que termine el fetch,
-    // no actualizamos estado (evita warnings de React).
     return () => {
       cancelled = true
     }
   }, [])
+
   const normalizedQuery = query.trim().toLowerCase()
   const visibleStories =
     normalizedQuery === ''
@@ -54,10 +55,15 @@ function Main() {
             story.title.toLowerCase().includes(normalizedQuery) ||
             story.by.toLowerCase().includes(normalizedQuery),
         )
+
   return (
     <main className="main">
-      <h1 className="main__title">DataPulse</h1>
-      <SearchForm 
+      <header className="main__intro">
+        <h1 className="main__title">DataPulse</h1>
+        <p className="main__lead">El pulso de Hacker News, en un solo vistazo.</p>
+      </header>
+
+      <SearchForm
         query={query}
         onQueryChange={setQuery}
         onSubmit={() => {}}

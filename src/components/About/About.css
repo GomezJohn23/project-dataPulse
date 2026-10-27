@@ -1,39 +1,55 @@
 .about {
-  padding: 1.5rem;
-  max-width: 40rem;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+  flex: 1;
 }
 
 .about__title {
-  margin: 0 0 1.25rem;
+  margin: 0 0 var(--space-lg);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: -0.03em;
+}
+
+.about__panel {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
 }
 
 .about__subtitle {
-  margin: 0 0 0.5rem;
-  font-size: 1.15rem;
-}
-
-.about__author,
-.about__project {
-  margin-bottom: 1.75rem;
+  margin: 0 0 var(--space-sm);
+  font-size: 1.2rem;
 }
 
 .about__text {
-  margin: 0 0 0.75rem;
-  line-height: 1.5;
+  margin: 0 0 var(--space-md);
+  color: var(--color-text);
+  line-height: 1.6;
 }
 
 .about__links {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .about__link {
-  color: inherit;
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: none;
+  background-color: var(--color-accent-soft);
+  border-radius: 999px;
 }
 
 .about__link:hover {
-  text-decoration: none;
+  filter: brightness(0.97);
 }

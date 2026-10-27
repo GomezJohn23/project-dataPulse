@@ -8,11 +8,10 @@ type SearchFormProps = {
 
 /**
  * Formulario de búsqueda controlado.
- * No filtra historias: solo reporta lo que el usuario escribe / envía.
  */
 function SearchForm({ query, onQueryChange, onSubmit }: SearchFormProps) {
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
-    event.preventDefault() // evita que el navegador recargue la página
+    event.preventDefault()
     onSubmit()
   }
 
@@ -26,9 +25,10 @@ function SearchForm({ query, onQueryChange, onSubmit }: SearchFormProps) {
         className="search-form__input"
         type="search"
         name="query"
-        placeholder="Buscar historias"
+        placeholder="Título o autor"
         value={query}
         onChange={(event) => onQueryChange(event.target.value)}
+        autoComplete="off"
       />
       <button className="search-form__button" type="submit">
         Buscar

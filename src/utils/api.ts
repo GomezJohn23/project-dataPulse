@@ -21,14 +21,13 @@ export function getTopStoryIds(): Promise<number[]> {
   return request<number[]>('/topstories.json')
 }
 
-/** Una historia por ID. La API puede devolver null si el ítem no existe. */
+/** Una historia (o comentario) por ID. Puede devolver null. */
 export function getStory(id: number): Promise<Story | null> {
   return request<Story | null>(`/item/${id}.json`)
 }
 
 /**
- * Trae varias historias en paralelo.
- * limit: cuántas queremos mostrar.
+ * Trae varias historias top en paralelo.
  */
 export async function getTopStories(limit = 20): Promise<Story[]> {
   const ids = await getTopStoryIds()
@@ -36,8 +35,23 @@ export async function getTopStories(limit = 20): Promise<Story[]> {
 
   const results = await Promise.all(selectedIds.map((id) => getStory(id)))
 
-  // Filtramos nulls y nos quedamos solo con type "story"
   return results.filter(
     (item): item is Story => item !== null && item.type === 'story',
+  )
+}
+
+/**
+ * Trae comentarios a partir de los IDs (kids de una historia).
+ * limit evita pedir decenas de requests de golpe.
+ */
+export async function getComments(
+  ids: number[],
+  limit = 15,
+): Promise<Story[]> {
+  const selectedIds = ids.slice(0, limit)
+  const results = await Promise.all(selectedIds.map((id) => getStory(id)))
+
+  return results.filter(
+    (item): item is Story => item !== null && item.type === 'comment',
   )
 }

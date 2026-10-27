@@ -8,7 +8,7 @@ function About() {
     <main className="about">
       <h1 className="about__title">Sobre el autor</h1>
 
-      <section className="about__author" aria-labelledby="about-author-heading">
+      <section className="about__panel" aria-labelledby="about-author-heading">
         <h2 id="about-author-heading" className="about__subtitle">
           John Gomez
         </h2>
@@ -40,7 +40,7 @@ function About() {
         </ul>
       </section>
 
-      <section className="about__project" aria-labelledby="about-project-heading">
+      <section className="about__panel" aria-labelledby="about-project-heading">
         <h2 id="about-project-heading" className="about__subtitle">
           Sobre DataPulse
         </h2>
