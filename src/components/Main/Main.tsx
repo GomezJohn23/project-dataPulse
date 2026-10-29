@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
+import type { FeedKind } from '../../types/feed'
 import type { Story } from '../../types/story'
-import { getTopStories } from '../../utils/api'
+import { getStoriesByFeed } from '../../utils/api'
+import FeedFilter from '../FeedFilter/FeedFilter'
 import SearchForm from '../SearchForm/SearchForm'
 import StoryList from '../StoryList/StoryList'
 import './Main.css'
 
 /**
- * Home (/): carga historias top y permite filtrarlas por título o autor.
+ * Home (/): feed Top/New/Jobs + búsqueda local por título o autor.
  */
 function Main() {
+  const [feed, setFeed] = useState<FeedKind>('top')
   const [stories, setStories] = useState<Story[]>([])
   const [query, setQuery] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -22,7 +25,7 @@ function Main() {
       setError(null)
 
       try {
-        const data = await getTopStories(20)
+        const data = await getStoriesByFeed(feed, 20)
         if (!cancelled) {
           setStories(data)
         }
@@ -44,7 +47,7 @@ function Main() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [feed])
 
   const normalizedQuery = query.trim().toLowerCase()
   const visibleStories =
@@ -56,12 +59,19 @@ function Main() {
             story.by.toLowerCase().includes(normalizedQuery),
         )
 
+  function handleFeedChange(nextFeed: FeedKind) {
+    setFeed(nextFeed)
+    setQuery('')
+  }
+
   return (
     <main className="main">
       <header className="main__intro">
         <h1 className="main__title">DataPulse</h1>
         <p className="main__lead">El pulso de Hacker News, en un solo vistazo.</p>
       </header>
+
+      <FeedFilter value={feed} onChange={handleFeedChange} />
 
       <SearchForm
         query={query}
