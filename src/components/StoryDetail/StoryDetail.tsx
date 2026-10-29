@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import type { Story } from '../../types/story'
-import { getComments, getStory } from '../../utils/api'
+import { getComments, getStory } from '../../utils/hnApi'
 import CommentList from '../CommentList/CommentList'
 import './StoryDetail.css'
 

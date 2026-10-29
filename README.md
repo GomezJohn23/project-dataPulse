@@ -2,6 +2,8 @@
 
 Aplicación front-end (proyecto final TripleTen) que muestra el “pulso” de la actualidad tech con la [API pública de Hacker News](https://github.com/HackerNews/API).
 
+**Demo:** [https://project-datapulse-three.vercel.app](https://project-datapulse-three.vercel.app)
+
 ## Características
 
 - Feed **Top / New / Jobs**
@@ -26,7 +28,8 @@ Aplicación front-end (proyecto final TripleTen) que muestra el “pulso” de l
 - Base: `https://hacker-news.firebaseio.com/v0/`
 - Listas: `topstories`, `newstories`, `jobstories`
 - Ítems: `item/{id}.json`
-- Las peticiones viven en `src/utils/api.ts` (los componentes no llaman a `fetch` directo)
+- Las peticiones viven en `src/utils/hnApi.ts` (los componentes no llaman a `fetch` directo)
+- Hacker News no requiere API key
 
 ## Scripts
 
