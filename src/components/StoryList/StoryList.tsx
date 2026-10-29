@@ -14,7 +14,7 @@ function StoryList({ stories }: StoryListProps) {
     return (
       <section className="story-list" aria-label="Historias">
         <p className="story-list__empty">
-          No hay historias para mostrar. Prueba otra búsqueda.
+          No se encontró nada
         </p>
       </section>
     )

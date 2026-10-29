@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { FeedKind } from '../../types/feed'
 import type { Story } from '../../types/story'
-import { getStoriesByFeed } from '../../utils/api'
+import { getStoriesByFeed } from '../../utils/hnApi'
 import FeedFilter from '../FeedFilter/FeedFilter'
 import SearchForm from '../SearchForm/SearchForm'
 import StoryList from '../StoryList/StoryList'
@@ -31,9 +31,9 @@ function Main() {
         }
       } catch (err) {
         if (!cancelled) {
-          setError(
-            err instanceof Error ? err.message : 'No se pudieron cargar las historias',
-          )
+                setError(
+          'Algo salió mal con la solicitud. Puede ser un problema de conexión o del servidor. Inténtalo de nuevo más tarde.',
+        )
         }
       } finally {
         if (!cancelled) {
